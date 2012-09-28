@@ -13,9 +13,15 @@ function checkBackup(client)
 		var modified = stat.modifiedAt;
 		var now = new Date();
 		var difference = now.getTime() - modified.getTime();
+		var ok = difference < oneDay;
 		
-		document.getElementById("filename").innerHTML = filename;
-		document.getElementById("modified").innerHTML = modified.toString();
+		var filenameElement = document.getElementById("filename");
+		if (filenameElement != null)
+			filenameElement.innerHTML = filename;
+		
+		var modifiedElement = document.getElementById("modified");
+		if (modifiedElement != null)
+			modifiedElement.innerHTML = modified.toString();
 		
 		var modifiedDays = document.getElementById("modifiedDays");
 		if (modifiedDays != null)
@@ -23,10 +29,17 @@ function checkBackup(client)
 		
 		var messageResult = document.getElementById("result");
 		
-		if (difference > oneDay)
-			messageResult.innerHTML = "Check your backups!";
-		else
+		if (ok)
+		{
 			messageResult.innerHTML = "All is OK.";
+			filenameElement.className = modifiedElement.className = modifiedDays.className = "okFile";
+		}
+		else
+		{
+			messageResult.innerHTML = "Check your backups!";
+			filenameElement.className = modifiedElement.className = modifiedDays.className = "badFile";
+		}
+			
 	});
 }
 

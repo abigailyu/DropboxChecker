@@ -2,3 +2,13 @@ html
 {
 	font-family:Arial;
 }
+
+.okfile
+{
+	color: lime;
+}
+
+.badfile
+{
+	color: red;
+}
