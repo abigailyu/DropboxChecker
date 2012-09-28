@@ -9,9 +9,13 @@ client.authDriver(new Dropbox.Drivers.Redirect());
 
 function checkBackup(client)
 {
-	fileResultsElement.innerHTML += "<tr><td>Filename:</td>\n";
-	fileResultsElement.innerHTML += "<td>Modified:</td>\n";
-	fileResultsElement.innerHTML += "<td>Modified Days Ago:</td></tr>\n";
+	var fileResultsElement = document.getElementById("fileResults");
+	if (fileResultsElement != null)
+	{
+		fileResultsElement.innerHTML += "<tr><td>Filename</td>\n";
+		fileResultsElement.innerHTML += "<td>Modified</td>\n";
+		fileResultsElement.innerHTML += "<td>Modified Days Ago</td></tr>\n";
+	}
 	
 	for (var i = 0; i < filenames.length; ++i)
 	{
