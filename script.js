@@ -47,12 +47,10 @@ function checkFile(myIndex)
 		
 		if (ok)
 		{
-			messageResult.innerHTML = "All is OK.";
 			filenameElement.className = modifiedElement.className = modifiedDays.className = "okFile";
 		}
 		else
 		{
-			messageResult.innerHTML = "Check your backups!";
 			filenameElement.className = modifiedElement.className = modifiedDays.className = "badFile";
 		}
 		
