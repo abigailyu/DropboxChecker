@@ -38,24 +38,11 @@ function checkFile(myIndex)
 		var fileResultsElement = document.getElementById("fileResults");
 		if (fileResultsElement != null)
 		{
-			tableHTML += "<tr><td><div id='filename" + myIndex + "' class='" + cssclass + "'></div></td>\n";
-			tableHTML += "<td><div id='modified" + myIndex + "' class='" + cssclass + "'></div></td>\n";
-			tableHTML += "<td><div id='modifiedDays" + myIndex + "' class='" + cssclass + "'></div></td></tr>\n";
+			tableHTML += "<tr><td><div id='filename" + myIndex + "' class='" + cssclass + "'>" + filenames[myIndex] + "</div></td>\n";
+			tableHTML += "<td><div id='modified" + myIndex + "' class='" + cssclass + "'>" + modified.toString() + "</div></td>\n";
+			tableHTML += "<td><div id='modifiedDays" + myIndex + "' class='" + cssclass + "'>" + (difference / oneDay) + "</div></td></tr>\n";
 			fileResultsElement.innerHTML = tableHTML;
 		}
-		
-		var filenameElement = document.getElementById("filename" + myIndex);
-		if (filenameElement != null)
-			filenameElement.innerHTML = filenames[myIndex];
-		
-		var modifiedElement = document.getElementById("modified" + myIndex);
-		if (modifiedElement != null)
-			modifiedElement.innerHTML = modified.toString();
-		
-		var modifiedDays = document.getElementById("modifiedDays" + myIndex);
-		if (modifiedDays != null)
-			modifiedDays.innerHTML = difference / oneDay;
-		
 	});
 }
 
