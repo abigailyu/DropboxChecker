@@ -14,6 +14,7 @@ function checkBackup(client)
 	for (var i = 0; i < filenames.length; ++i)
 	{
 		var myIndex = i;
+		
 		client.stat(filenames[myIndex], function(error, stat, entries) {
 			var modified = stat.modifiedAt;
 			var now = new Date();
@@ -30,7 +31,7 @@ function checkBackup(client)
 			
 			var filenameElement = document.getElementById("filename" + myIndex);
 			if (filenameElement != null)
-				filenameElement.innerHTML = filenames[i];
+				filenameElement.innerHTML = filenames[myIndex];
 			
 			var modifiedElement = document.getElementById("modified" + myIndex);
 			if (modifiedElement != null)
