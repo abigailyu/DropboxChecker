@@ -13,7 +13,7 @@ function checkBackup(client)
 	
 	for (var i = 0; i < filenames.length; ++i)
 	{
-		checkFilecheckFile(i)	
+		checkFile(i)	
 	}
 }
 
