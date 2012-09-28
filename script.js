@@ -1,5 +1,5 @@
 const oneDay=1000*60*60*24;
-const filenames=["/Backup/sql/ecs_cloud_mysql.sql.gz.gpg", "Backup/apps/deployment.tar.bz2"];
+const filenames=["/Backup/sql/ecs_cloud_mysql.sql.gz.gpg", "/Backup/apps/deployment.tar.bz2"];
 
 const client = new Dropbox.Client({
 		key: "omRCGRVEY3A=|puIE7RBXBLNdDzYvWcojIONWT3loQP1rIbny+uaurg==", sandbox: false
