@@ -9,7 +9,9 @@ client.authDriver(new Dropbox.Drivers.Redirect());
 
 function checkBackup(client)
 {
-	var allOk = true;
+	fileResultsElement.innerHTML += "<tr><td>Filename:</td>\n";
+	fileResultsElement.innerHTML += "<td>Modified:</td>\n";
+	fileResultsElement.innerHTML += "<td>Modified Days Ago:</td></tr>\n";
 	
 	for (var i = 0; i < filenames.length; ++i)
 	{
@@ -28,9 +30,9 @@ function checkFile(myIndex)
 		var fileResultsElement = document.getElementById("fileResults");
 		if (fileResultsElement != null)
 		{
-			fileResultsElement.innerHTML += "<tr><td>Filename:</td><td><div id='filename" + myIndex + "'></div></td></tr>\n";
-			fileResultsElement.innerHTML += "<tr><td>Modified:</td><td><div id='modified" + myIndex + "'></div></td></tr>\n";
-			fileResultsElement.innerHTML += "<tr><td>Modified Days Ago:</td><td><div id='modifiedDays" + myIndex + "'></div></td></tr>\n";
+			fileResultsElement.innerHTML += "<tr<td><div id='filename" + myIndex + "'></div></td>\n";
+			fileResultsElement.innerHTML += "<td><div id='modified" + myIndex + "'></div></td>\n";
+			fileResultsElement.innerHTML += "<td><div id='modifiedDays" + myIndex + "'></div></td></tr>\n";
 		}
 		
 		var filenameElement = document.getElementById("filename" + myIndex);
