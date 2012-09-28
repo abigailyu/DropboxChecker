@@ -16,7 +16,11 @@ function checkBackup(client)
 		
 		document.getElementById("filename").innerHTML = filename;
 		document.getElementById("modified").innerHTML = modified.toString();
-		document.getElementById("modifiedDays").innerHTML = difference / oneDay;
+		
+		var modifiedDays = document.getElementById("modifiedDays");
+		if (modifiedDays != null)
+			modifiedDays.innerHTML = difference / oneDay;
+		
 		var messageResult = document.getElementById("result");
 		
 		if (difference > oneDay)
