@@ -34,7 +34,7 @@ function checkFile(myIndex)
 		var fileResultsElement = document.getElementById("fileResults");
 		if (fileResultsElement != null)
 		{
-			fileResultsElement.innerHTML += "<tr<td><div id='filename" + myIndex + "'></div></td>\n";
+			fileResultsElement.innerHTML += "<tr><td><div id='filename" + myIndex + "'></div></td>\n";
 			fileResultsElement.innerHTML += "<td><div id='modified" + myIndex + "'></div></td>\n";
 			fileResultsElement.innerHTML += "<td><div id='modifiedDays" + myIndex + "'></div></td></tr>\n";
 		}
