@@ -1,5 +1,6 @@
 const oneDay=1000*60*60*24;
 const filenames=["/Backup/sql/ecs_cloud_mysql.sql.gz.gpg", "/Backup/apps/deployment.tar.bz2"];
+var tableHTML = "";
 
 const client = new Dropbox.Client({
 		key: "omRCGRVEY3A=|puIE7RBXBLNdDzYvWcojIONWT3loQP1rIbny+uaurg==", sandbox: false
@@ -12,9 +13,10 @@ function checkBackup(client)
 	var fileResultsElement = document.getElementById("fileResults");
 	if (fileResultsElement != null)
 	{
-		fileResultsElement.innerHTML += "<tr><td>Filename</td>\n";
-		fileResultsElement.innerHTML += "<td>Modified</td>\n";
-		fileResultsElement.innerHTML += "<td>Modified Days Ago</td></tr>\n";
+		tableHTML += "<tr><td>Filename</td>\n";
+		tableHTML += "<td>Modified</td>\n";
+		tableHTML += "<td>Modified Days Ago</td></tr>\n";
+		fileResultsElement.innerHTML = tableHTML;
 	}
 	
 	for (var i = 0; i < filenames.length; ++i)
@@ -31,12 +33,15 @@ function checkFile(myIndex)
 		var difference = now.getTime() - modified.getTime();
 		var ok = difference < oneDay;
 		
+		var cssclass = ok ? "okfile" : "badfile";
+		
 		var fileResultsElement = document.getElementById("fileResults");
 		if (fileResultsElement != null)
 		{
-			fileResultsElement.innerHTML += "<tr><td><div id='filename" + myIndex + "'></div></td>\n";
-			fileResultsElement.innerHTML += "<td><div id='modified" + myIndex + "'></div></td>\n";
-			fileResultsElement.innerHTML += "<td><div id='modifiedDays" + myIndex + "'></div></td></tr>\n";
+			tableHTML += "<tr><td><div id='filename" + myIndex + "' class='" + cssclass + "'></div></td>\n";
+			tableHTML += "<td><div id='modified" + myIndex + "' class='" + cssclass + "'></div></td>\n";
+			tableHTML += "<td><div id='modifiedDays" + myIndex + "' class='" + cssclass + "'></div></td></tr>\n";
+			fileResultsElement.innerHTML = tableHTML;
 		}
 		
 		var filenameElement = document.getElementById("filename" + myIndex);
@@ -50,15 +55,6 @@ function checkFile(myIndex)
 		var modifiedDays = document.getElementById("modifiedDays" + myIndex);
 		if (modifiedDays != null)
 			modifiedDays.innerHTML = difference / oneDay;
-		
-		if (ok)
-		{
-			filenameElement.className = modifiedElement.className = modifiedDays.className = "okFile";
-		}
-		else
-		{
-			filenameElement.className = modifiedElement.className = modifiedDays.className = "badFile";
-		}
 		
 	});
 }
