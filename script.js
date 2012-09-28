@@ -29,7 +29,7 @@ function checkBackup(client)
 			
 			var filenameElement = document.getElementById("filename" + i);
 			if (filenameElement != null)
-				filenameElement.innerHTML = filename;
+				filenameElement.innerHTML = filenames[i];
 			
 			var modifiedElement = document.getElementById("modified" + i);
 			if (modifiedElement != null)
