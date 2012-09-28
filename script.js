@@ -11,9 +11,10 @@ function checkBackup(client)
 {
 	var allOk = true;
 	
-	for (i = 0; i < filenames.length; ++i)
+	for (var i = 0; i < filenames.length; ++i)
 	{
-		client.stat(filenames[i], function(error, stat, entries) {
+		var myIndex = i;
+		client.stat(filenames[myIndex], function(error, stat, entries) {
 			var modified = stat.modifiedAt;
 			var now = new Date();
 			var difference = now.getTime() - modified.getTime();
@@ -22,20 +23,20 @@ function checkBackup(client)
 			var fileResultsElement = document.getElementById("fileResults");
 			if (fileResultsElement != null)
 			{
-				fileResultsElement.innerHTML += "<tr><td>Filename:</td><td><div id='filename" + i + "'></div></td></tr>\n";
-				fileResultsElement.innerHTML += "<tr><td>Modified:</td><td><div id='modified" + i + "'></div></td></tr>\n";
-				fileResultsElement.innerHTML += "<tr><td>Modified Days Ago:</td><td><div id='modifiedDays" + i + "'></div></td></tr>\n";
+				fileResultsElement.innerHTML += "<tr><td>Filename:</td><td><div id='filename" + myIndex + "'></div></td></tr>\n";
+				fileResultsElement.innerHTML += "<tr><td>Modified:</td><td><div id='modified" + myIndex + "'></div></td></tr>\n";
+				fileResultsElement.innerHTML += "<tr><td>Modified Days Ago:</td><td><div id='modifiedDays" + myIndex + "'></div></td></tr>\n";
 			}
 			
-			var filenameElement = document.getElementById("filename" + i);
+			var filenameElement = document.getElementById("filename" + myIndex);
 			if (filenameElement != null)
 				filenameElement.innerHTML = filenames[i];
 			
-			var modifiedElement = document.getElementById("modified" + i);
+			var modifiedElement = document.getElementById("modified" + myIndex);
 			if (modifiedElement != null)
 				modifiedElement.innerHTML = modified.toString();
 			
-			var modifiedDays = document.getElementById("modifiedDays" + i);
+			var modifiedDays = document.getElementById("modifiedDays" + myIndex);
 			if (modifiedDays != null)
 				modifiedDays.innerHTML = difference / oneDay;
 			
