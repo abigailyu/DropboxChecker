@@ -13,7 +13,7 @@ function checkBackup(client)
 	
 	for (i = 0; i < filenames.length; ++i)
 	{
-		client.stat(filename, function(error, stat, entries) {
+		client.stat(filenames[i], function(error, stat, entries) {
 			var modified = stat.modifiedAt;
 			var now = new Date();
 			var difference = now.getTime() - modified.getTime();
