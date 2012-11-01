@@ -14,6 +14,7 @@ function checkBackup(client)
 	if (fileResultsElement != null)
 	{
 		tableHTML += "<tr><td>Filename</td>\n";
+		tableHTML += "<tr><td>Size</td>\n";
 		tableHTML += "<td>Modified</td>\n";
 		tableHTML += "<td>Modified Days Ago</td></tr>\n";
 		fileResultsElement.innerHTML = tableHTML;
@@ -39,7 +40,8 @@ function checkFile(myIndex)
 		if (fileResultsElement != null)
 		{
 			tableHTML += "<tr><td><div id='filename" + myIndex + "' class='" + cssclass + "'>" + filenames[myIndex] + "</div></td>\n";
-			tableHTML += "<td><div id='modified" + myIndex + "' class='" + cssclass + "'>" + modified.toString() + "</div></td>\n";
+			tableHTML += "<td><div id='size" + myIndex + "' class='" + cssclass + "'>" + stat.humanSize + "</div></td>\n";
+			tableHTML += "<td><div id='modified" + myIndex + "' class='" + cssclass + "'>" + modified.toString() + "</div></td>\n";			
 			tableHTML += "<td><div id='modifiedDays" + myIndex + "' class='" + cssclass + "'>" + (Math.round(difference / oneDay * 100)/100) + "</div></td></tr>\n";
 			fileResultsElement.innerHTML = tableHTML;
 		}
