@@ -14,7 +14,7 @@ function checkBackup(client)
 	if (fileResultsElement != null)
 	{
 		tableHTML += "<tr><td>Filename</td>\n";
-		tableHTML += "<tr><td>Size</td>\n";
+		tableHTML += "<td>Size</td>\n";
 		tableHTML += "<td>Modified</td>\n";
 		tableHTML += "<td>Modified Days Ago</td></tr>\n";
 		fileResultsElement.innerHTML = tableHTML;
