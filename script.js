@@ -1,5 +1,5 @@
 const oneDay=1000*60*60*24;
-const filenames=["/Backup/sql/ecs_cloud_mysql.sql.gz.gpg", "/Backup/apps/deployment.tar.bz2", "/Backup/apps/pressgang-ccms-ui.war", "/Backup/code/PressGangCCMSUI.tar.bz2"];
+const filenames=["/Backup/sql/ecs_cloud_mysql.sql.gz.gpg", "/Backup/apps/deployment.tar.bz2", "/Backup/code/PressGangCCMSUI.tar.gz"];
 var tableHTML = "";
 
 const client = new Dropbox.Client({
